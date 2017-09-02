@@ -1,0 +1,101 @@
+2017/08/20 
+1.安裝nodejs
+2.安裝NVM
+3.安裝chocolate (多此一舉？)
+4.用chocolate安裝yarn
+5.安裝android studio
+6.修改android studio版本設定
+    SDK Platforms 選擇 Google APIs 、 Android SDK Platform 23 
+    SDK Tools 選擇 Android SDK Build-Tools 23.0.1
+    Windows 控制台 > 系統及安全性 > 進階系統設定 > 進階 > 環境變數 > 新增
+    ;C:\Users\使用者名稱\AppData\Local\Android\sdk\platform-tools
+    ;C:\Users\使用者名稱\AppData\Local\Android\sdk\tools
+7.安裝genymotion
+8.卡關...genymotion沒跑出模擬機器(原來要登入帳號)
+9.設定genymotion連結我的專案路徑
+10.安裝JDK
+
+
+
+2017/08/31
+1.npm install
+2.npm install react-native-vector-icons --save
+    https://github.com/oblador/react-native-vector-icons
+3.npm install native-base --save 
+    https://github.com/GeekyAnts/NativeBase
+    失敗
+4.安裝git
+5.npm install native-base --save 
+    https://github.com/GeekyAnts/NativeBase
+    還是失敗
+6.git init
+7.react-native link
+    似乎失敗，沒有顯示有linked到native-base，先略過
+8.專案運行跑出錯誤
+    ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+9.設定JAVA_HOME環境變數
+    還是失敗
+10.重新開機
+    萬能重開，解決後又跑出新問題
+    * What went wrong:
+    A problem occurred configuring project ':app'.
+    > The SDK directory 'C:\Users\USERNAME\AppData\Local\Android\sdk' does not exist.
+11.解決辦法
+    是在專案資料夾的"android"資料夾底下建立一個local.properties
+    然後在檔案裡面寫sdk.dir = C:/Users/101an/AppData/Local/Android/sdk
+12.重新創一個乾淨的專案jgw
+    還是沒辦法運行套件
+
+
+
+2017/09/01
+1.按照jollyyang的教導下終於運行的套件
+    嗯，我基礎太差。
+2.為了學習基礎，開始看第七週影片教材
+3.yarn add react-navigation
+4.git clone https://github.com/aksonov/react-native-router-flux.git
+    cd react-native-router-flux/Example
+    yarn
+    (好像可以改下yarn add react-native-router-flux)
+5.移除node_modules
+    重新安裝
+    npm install
+    npm install native-base --save
+    node node_modules/native-base/ejectTheme.js
+6.react-native link
+    react-native run-android
+7.看week7教材
+    要裝以下兩個
+    npm install react-navigation --save
+    npm install react-native-router-flux --save
+    學會跳頁
+8.開始使用套件設計第一個頁面
+9.也設計了一點架構分枝樹
+    首頁 ─ 第一頁 ┬ 金融相關(Money) ─ 借款契約書(Money1)
+                 └ 不動產相關(未命名) ─ 不動產租賃契約書(未命名)
+10.設計了一點借款契約書的樣式
+11.設計導覽列遇到問題Drawer
+    找了一些解答並請教jolly yang但看不懂
+
+
+2017/09/02
+1.找到nativebase官方的範例
+    https://github.com/GeekyAnts/NativeBase-KitchenSink
+    clone參考看看
+2.終於做好側拉選單
+    把之前做的內容都先丟進去
+3.繼續設計借款契約書(借據)畫面的樣式
+    待開發功能1.checkbox點擊後顯示隱藏內容(是否有連帶保證人)
+    待開發功能2.每個頁面的側拉選單都是寫再開頭，可否額外獨立出來，再用導入的？需再研究。
+    待開發功能3.點擊填入日期，自動帶出可以選擇的日曆
+4.logo都好醜，決定安裝react-native-vector-icons
+    npm install react-native-vector-icons --save
+    react-native link
+5.設計樣式發現需要使用下拉式選單，開始學習
+    需要的地方：還款時間，三天、隔週、隔月、隔年
+    不然就是改用redio選單方式來取代
+    先用radio取代
+    待開發功能4.下拉式選單
+    待開發功能5.todo list選單
+    待開發功能6.全部清除功能
+
